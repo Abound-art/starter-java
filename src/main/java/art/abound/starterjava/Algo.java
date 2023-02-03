@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
  * it offers a template that you can copy and hollow out, replacing it
  * with the logic that produces your art.
  */
-public class Lorenz {
+public class Algo {
     public double beta;
     public double rho;
     public double sigma;
@@ -41,7 +41,7 @@ public class Lorenz {
     }
 
     public RenderedImage run() {
-        Lorenz c = this;
+        Algo c = this;
         Point[] points = new Point[c.iterations];
         points[0] = new Point(1, 1, 1);
         Bounds bounds = new Bounds(new Point(1, 1, 1), new Point(1, 1, 1));

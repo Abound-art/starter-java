@@ -7,7 +7,7 @@ public final class App {
     }
 
     public static void main(String[] args) {
-        Lorenz config = Abound.loadConfig(Lorenz.class);
+        Algo config = Abound.loadConfig(Algo.class);
         RenderedImage image = config.run();
         Abound.writePng(image);
     }

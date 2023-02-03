@@ -18,10 +18,17 @@ In short, this repo does everything except implement your art algorithm, which
 will generally look like this:
 
 ```java
+package art.abound.starterjava;
+
+import java.awt.image.RenderedImage;
+import com.google.gson.annotations.SerializedName;
+
 // Config is all the parameters your algorithm takes as input.
-public class MyAlgorithm {
+public class Algo {
     // Your arguments here - they'll be deserialized from JSON.
+    @SerializedName("my_arg")
     String myArg;
+    @SerializedName("another_arg")
     Int anotherArg;
     
     public RenderedImage run() {
@@ -43,20 +50,34 @@ Will generate a piece of art at `output.png` that looks like this:
 
 ![An example output of the Lorenz attractor algorithm, a blue and green spiral](/example_output.png)
 
-It's also worth noting
-that the example algorithm produces raster images, meaning they're made of
-pixels and are output as [PNG](https://en.wikipedia.org/wiki/PNG) files, but
-you can also write algorithms that produce vector images, meaning they're made
-of geometric shapes and are output as
-[SVG](https://en.wikipedia.org/wiki/SVG) files.
+It's also worth noting that the example algorithm produces raster images,
+meaning they're made of pixels and are output as
+[PNG](https://en.wikipedia.org/wiki/PNG) files, but you can also write
+algorithms that produce vector images, meaning they're made of geometric shapes
+and are output as [SVG](https://en.wikipedia.org/wiki/SVG) files.
 
 ### As a Docker container
 
-TODO - Write this after packaging
+To test the algorithm in a Docker container, run:
+
+```bash
+./scripts/build_image.sh
+./scripts/run_image.sh <config path> <output path>
+```
+
+Where `<config path>` defaults to `example_input.json` and `<output path>`
+defaults to `output.png`.
 
 ## Packaging for Deployment
 
-TODO - Write this after packaging
+Algorithms are uploaded to ABOUND as Docker containers. The example algo can be
+built by running:
+
+```bash
+./scripts/build_image.sh
+```
+
+Which will build the example image and tag it `abound-starter-java`.
 
 ## Deploying on ABOUND 
 
